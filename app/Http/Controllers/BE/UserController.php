@@ -17,10 +17,10 @@ class UserController extends Controller
     public function index(){
 
         $user = $this -> userService->paginate();
-//        $user = User::paginate(20);
-
-
         $config = $this -> config();
+
+        $config['seo'] = config('apps.user');
+
         $template = 'BE.user.index';
         return view('BE.dashboard.layout', compact(
             'template',
@@ -28,6 +28,15 @@ class UserController extends Controller
             'user'
         ));
 
+    }
+    public function create()
+    {
+        $config['seo'] = config('apps.user');
+        $template = 'BE.user.create';
+        return view(
+            'BE.dashboard.layout',compact(
+                'template','config'
+        ));
     }
     private function config(){
         $config = [

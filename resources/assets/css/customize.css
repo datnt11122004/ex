@@ -79,4 +79,26 @@ btn{
 .mb0{
     margin-bottom: 0;
 }
+box .ibox{
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+.mt-5{
+    margin-top: 5px;
+}
+.mt-10{
+    margin-top: 10px;
+}
+.mt-0{
+    margin-top: 0;
+}
+.mb10{
+    margin-bottom: 10px;
+}
+.mb15{
+   margin-bottom: 15px;
+}
+.control-label{
+    display: block;
+}
+
 

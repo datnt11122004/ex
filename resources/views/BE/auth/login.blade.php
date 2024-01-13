@@ -13,6 +13,7 @@
 
     <link href="../resources/assets/css/animate.css" rel="stylesheet">
     <link href="../resources/assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../resources/assets/css/customize.css">
 
 </head>
 

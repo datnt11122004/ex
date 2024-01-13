@@ -24,7 +24,11 @@ Route::get('/', function () {
 });
 
 // User route
-Route::get('user/index',[UserController::class, 'index']) -> name('auth.user') -> middleware('admin');
+Route::group(['prefix' => 'user'],function () {
+    Route::get('index', [UserController::class, 'index'])->name('auth.user')->middleware('admin');
+    Route::get('create', [UserController::class, 'create'])->name('user.create')->middleware('admin');
+
+});
 
 
 // Backend route

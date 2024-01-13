@@ -18,7 +18,6 @@ class LoginMiddleware
     {
         if(Auth::id() > 0){
             return redirect() -> route('dashboard.index') -> with('success', 'Đăng nhập vào trang quản trị thành công');
-
         }
         return $next($request);
     }
