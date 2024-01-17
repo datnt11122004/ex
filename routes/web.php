@@ -7,6 +7,7 @@ use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\AuthenticateMiddleware;
 use App\Http\Middleware\LoginMiddleware;
 use App\Http\Controllers\BE\UserController;
+use App\Http\Controllers\Ajax\LocationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,9 @@ Route::group(['prefix' => 'user'],function () {
     Route::get('create', [UserController::class, 'create'])->name('user.create')->middleware('admin');
 
 });
+
+// Ajax
+Route::get('ajax/location/getLocation',[LocationController::class, 'getLocation']) -> name('ajax.location.index') -> middleware('admin');
 
 
 // Backend route
