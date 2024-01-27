@@ -31,11 +31,11 @@
                 {{$value -> address}}
             </td>
             <td class="text-center">
-                <input type="checkbox" class="js-switch" checked />
+                <input type="checkbox" value="{{$value->publish}}" class="js-switch" {{($value->publish)==1?'checked':''}} />
             </td>
             <td class="text-center">
-                <a href="" class="btn btn-success"><i class="fa fa-edit"></i></a>
-                <a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                <a href="{{route('user.edit',$value->id)}}" class="btn btn-success"><i class="fa fa-edit"></i></a>
+                <a href="{{route('user.delete',$value->id)}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
             </td>
         </tr>
 

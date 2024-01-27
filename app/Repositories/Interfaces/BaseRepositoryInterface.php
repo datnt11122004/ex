@@ -9,4 +9,15 @@ namespace App\Repositories\Interfaces;
 interface BaseRepositoryInterface
 {
     public function all();
+
+    public function findById(int $modelId, array $colum, array $relation);
+
+    public function update(int $id=0,array $payload=[]);
+
+    public function delete(int $id = 0);
+
+    public function forceDelete(int $id = 0);
+
+    public function pagination(array $colum = ['*'], array $condition = [], array $join = [], int $perpage = 20);
+
 }
