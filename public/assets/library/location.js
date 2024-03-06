@@ -26,11 +26,11 @@
                 $('.'+option.target).html(response.html);
 
 
-                if(district_id !== '' && option.target === 'districts'){
+                if(district_id !== 0 && option.target === 'districts'){
                     $('.districts').val(district_id).trigger('change');
                 }
 
-                if(ward_id !== '' && option.target === 'wards'){
+                if(ward_id !== 0 && option.target === 'wards'){
                     $('.wards').val(ward_id).trigger('change');
                 }
             },
@@ -44,14 +44,13 @@
     }
 
     HT.loadCity = () => {
-        if(province_id !== ''){
+        if(province_id !== 0){
             $('.province').val(province_id).trigger('change');
         }
-
     }
     $(document).ready(function (){
-        HT.getLocation();
         HT.loadCity();
+        HT.getLocation();
 
         // console.log(123)
     });

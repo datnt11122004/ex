@@ -15,32 +15,33 @@
     <tbody>
     @if(isset($user) & is_object($user))
         @foreach($user as $value)
-
-        <tr>
-            <td class="text-center">
-                <input type="checkbox" name="" class="input-checkbox checkboxItem">
-            </td>
-            <td class="text-center">
-                {{$value -> fullname}}
-            </td>
-            <td class="text-center">{{$value -> email}}</td>
-            <td class="text-center">
-                {{$value -> phone}}
-            </td>
-            <td class="text-center">
-                {{$value -> address}}
-            </td>
-            <td class="text-center">
-                <input type="checkbox" value="{{$value->publish}}" class="js-switch" {{($value->publish)==1?'checked':''}} />
-            </td>
-            <td class="text-center">
-                <a href="{{route('user.edit',$value->id)}}" class="btn btn-success"><i class="fa fa-edit"></i></a>
-                <a href="{{route('user.delete',$value->id)}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-            </td>
-        </tr>
+            <tr>
+                <td class="text-center">
+                    <input type="checkbox" name="" class="input-checkbox checkboxItem">
+                </td>
+                <td class="text-center">
+                    {{$value -> fullname}}
+                </td>
+                <td class="text-center">{{$value -> email}}</td>
+                <td class="text-center">
+                    {{$value -> phone}}
+                </td>
+                <td class="text-center">
+                    {{$value -> address}}
+                </td>
+                <td class="text-center">
+                    <input type="checkbox" value="{{$value->publish}}" class="js-switch" {{($value->publish)==1?'checked':''}} />
+                </td>
+                <td class="text-center">
+                    <a href="{{route('user.edit',$value->id)}}" class="btn btn-success"><i class="fa fa-edit"></i></a>
+                    <a href="{{route('user.delete',$value->id)}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                </td>
+            </tr>
 
         @endforeach
     @endif
     </tbody>
 </table>
 {{$user->links('pagination::bootstrap-4') }}
+
+

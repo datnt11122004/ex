@@ -18,6 +18,6 @@ interface BaseRepositoryInterface
 
     public function forceDelete(int $id = 0);
 
-    public function pagination(array $colum = ['*'], array $condition = [], array $join = [], int $perpage = 20);
+    public function pagination(array $colum = ['*'], array $condition = [], array $join = [],array $extend  = [], int $perpage = 20);
 
 }

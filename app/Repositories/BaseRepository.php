@@ -25,15 +25,24 @@ class BaseRepository implements  BaseRepositoryInterface
         array $colum = ['*'],
         array $condition = [],
         array $join = [],
-        int $perpage = 20
+        array $extend = [],
+        int $perpage = 1,
+
     ){
         $query = $this->model->select($colum)
-                        ->where($condition);
+                        ->where(function ($query) use ($condition){
+                            if(isset($condition['keyword']) && !empty($condition['keyword'])){
+                                $query->where('fullname','LIKE','%'.$condition['keyword'].'%');
+                            }
+                            if(isset($condition['user_catalogue_id']) && !empty($condition['user_catalogue_id'])){
+                                $query->where('user_catalogue_id','=',$condition['user_catalogue_id']);
+                            }
+                        });
         if(isset($join) && !empty($join)){
             $query->join(...$join);
 
         }
-        return $query->paginate($perpage);
+        return $query->paginate($perpage)->withQueryString()->withPath(env('APP_URL').$extend['path']);
     }
 
     public function all()

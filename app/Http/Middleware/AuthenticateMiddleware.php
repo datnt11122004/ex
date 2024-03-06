@@ -19,7 +19,6 @@ class AuthenticateMiddleware
     {
         if(Auth::id() == null){
             return redirect()->route('auth.admin') -> with('error','Đăng nhập đi đã');
-
         }
         return $next($request);
     }

@@ -9,8 +9,9 @@
         </ul>
     </div>
 @endif
-<form action="{{route('user.store')}}" method="post" class="box">
+<form action="{{route('user.update',$user->id)}}" method="post" class="box">
     @csrf
+    @method('PUT')
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
             <div class="col-lg-5">
@@ -32,7 +33,7 @@
                                     <input
                                         type="text"
                                         name="email"
-                                        value="{{old('email')}}"
+                                        value="{{old('email',($user->email)??"")}}"
                                         class="form-control"
                                         placeholder="Nhập email của bạn"
                                         autocomplete="off"
@@ -45,7 +46,7 @@
                                     <input
                                         type="text"
                                         name="fullname"
-                                        value="{{old('fullname')}}"
+                                        value="{{old('fullname',($user->fullname)??"")}}"
                                         class="form-control"
                                         placeholder="Nhập họ tên của người dùng"
                                         autocomplete="off"
@@ -66,7 +67,7 @@
                                     <label for="" class="control-label text-left">Nhóm thành viên <span class="text-danger">(*)</span></label>
                                     <select name="user_catalogue_id" class="form-control">
                                         @foreach($user_catalogue_id as $key => $item)
-                                            <option value="{{$key}}" @if($key == old('user_catalogue_id')) selected @endif>{{$item}}</option>
+                                            <option value="{{$key}}" @if($key == old('user_catalogue_id',$user->user_catalogue_id??"")) selected @endif>{{$item}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -77,7 +78,7 @@
                                     <input
                                         type="date"
                                         name="birthday"
-                                        value="{{old('birthday')}}"
+                                        value="{{old('birthday',$user->birthday??"")}}"
                                         class="form-control"
                                         placeholder="Nhập ngày sinh của người dùng"
                                         autocomplete="off"
@@ -85,6 +86,7 @@
                                 </div>
                             </div>
                         </div>
+                        @if($config['method'] == 'create')
                         <div class="row mb15">
                             <div class="col-lg-6">
                                 <div class="form-row">
@@ -113,6 +115,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                         <div class="row mb15">
                             <div class="col-lg-12">
                                 <div class="form-row">
@@ -120,7 +123,7 @@
                                     <input
                                         type="text"
                                         name="image"
-                                        value="{{old('image')}}"
+                                        value="{{old('image',$user->image??"")}}"
                                         class="form-control input-image"
                                         placeholder="Ảnh đại diện"
                                         autocomplete="off"
@@ -173,7 +176,7 @@
                             <div class="col-lg-6">
                                 <div class="form-row">
                                     <label for="" class="control-label text-left">Phường/Xã</label>
-                                    <select name="ward_id" class="form-control wards">
+                                    <select name="ward_id" class="form-control wards location">
                                         <option value="0">Chọn phường xã</option>
                                     </select>
                                 </div>
@@ -184,7 +187,7 @@
                                     <input
                                         type="text"
                                         name="address"
-                                        value="{{old('address')}}"
+                                        value="{{old('address', $user->address??"")}}"
                                         class="form-control"
                                         placeholder="Nhập địa chỉ của người dùng"
                                         autocomplete="off"
@@ -199,7 +202,7 @@
                                     <input
                                         type="text"
                                         name="phone"
-                                        value="{{old('phone')}}"
+                                        value="{{old('phone', $user->phone??"")}}"
                                         class="form-control"
                                         placeholder="Nhập số điện thoại người dùng người dùng"
                                         autocomplete="off"
@@ -212,7 +215,7 @@
                                     <input
                                         type="text"
                                         name="description"
-                                        value="{{old('description')}}"
+                                        value="{{old('description',$user->description??"")}}"
                                         class="form-control"
                                         placeholder=""
                                         autocomplete="off"
@@ -231,7 +234,7 @@
     </div>
 </form>
 <script>
-    var province_id = {{old('province_id')}} ;
-    var district_id = {{old('district_id')}};
-    var ward_id = {{old('district_id')}};
+    var province_id = {{$user->province_id ?? old('province_id') ?? 0}} ;
+    var district_id = {{$user->district_id ?? old('district_id') ?? 0}};
+    var ward_id = {{$user->ward_id ?? old('district_id') ?? 0}};
 </script>

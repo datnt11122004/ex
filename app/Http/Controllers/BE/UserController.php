@@ -24,9 +24,9 @@ class UserController extends Controller
         $this -> userRepository = $userRepository;
     }
 
-    public function index(){
+    public function index(Request $request){
 
-        $user = $this -> userService->paginate();
+        $user = $this -> userService->paginate($request);
         $config = $this -> config();
 
         $config['seo'] = config('apps.user');
@@ -78,7 +78,7 @@ class UserController extends Controller
         ];
         $config['method'] = 'edit';
         $config['seo'] = config('apps.user');
-        $template = 'BE.user.store';
+        $template = 'BE.user.update';
         return view(
             'BE.dashboard.layout',compact(
             'template','config','provinces','user'

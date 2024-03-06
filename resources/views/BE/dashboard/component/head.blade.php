@@ -3,16 +3,15 @@
 
 <title>INSPINIA | Dashboard v.2</title>
 <base href="{{env('APP_URL')}}">
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="font-awesome/css/font-awesome.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
-<link rel="stylesheet" href="css/customize.css">
-<link href="css/animate.css" rel="stylesheet">
+<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/customize.css">
+<link href="assets/css/animate.css" rel="stylesheet">
 @if(isset($config['css']) && is_array($config['css']))
     @foreach($config['css'] as $key => $value)
-        {!! '<link href="'.$value.'" rel="stylesheet">' !!}
+        {!! '<link href="assets/'.$value.'" rel="stylesheet">' !!}
     @endforeach
 @endif
 
-<script src="js/jquery-3.1.1.min.js"></script>
 
