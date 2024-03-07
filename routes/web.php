@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BE\AuthController;
 use App\Http\Controllers\BE\DashboardController;
+use App\Http\Controllers\Ajax\DashboardController as AjaxDashboardController;
 use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\AuthenticateMiddleware;
 use App\Http\Middleware\LoginMiddleware;
@@ -37,6 +38,7 @@ Route::group(['prefix' => 'user'],function () {
 
 // Ajax
 Route::get('ajax/location/getLocation',[LocationController::class, 'getLocation']) -> name('ajax.location.index') -> middleware('admin');
+Route::post('ajax/dashboard/changeStatus',[AjaxDashboardController::class, 'changeStatus']) -> name('ajax.dashboard.changeStatus') -> middleware('admin');
 
 
 // Backend route

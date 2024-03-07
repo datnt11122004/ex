@@ -30,7 +30,15 @@
                     {{$value -> address}}
                 </td>
                 <td class="text-center">
-                    <input type="checkbox" value="{{$value->publish}}" class="js-switch" {{($value->publish)==1?'checked':''}} />
+                    <input
+                        type="checkbox"
+                        value="{{$value->publish}}"
+                        class="js-switch status"
+                        {{($value->publish)==1?'checked':''}}
+                        data-field="publish"
+                        data-model="users"
+                        data-modelId="{{ $value->id }}"
+                    />
                 </td>
                 <td class="text-center">
                     <a href="{{route('user.edit',$value->id)}}" class="btn btn-success"><i class="fa fa-edit"></i></a>

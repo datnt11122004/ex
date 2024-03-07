@@ -50,6 +50,7 @@ class UserController extends Controller
         ];
         $config['method'] = 'create';
         $config['seo'] = config('apps.user');
+
         $template = 'BE.user.store';
         return view(
             'BE.dashboard.layout',compact(
