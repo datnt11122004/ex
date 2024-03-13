@@ -19,7 +19,7 @@
                     <div class="panel-title">Thông tin chung</div>
                     <div class="panel-description">
                         <p>Bạn đang muốn xóa người dùng có email là: {{$user->email}}</p>
-                        <p>Tên của người dùng là: {{$user->fullname}}</p>
+                        <p>Tên của người dùng là: {{$user->name}}</p>
                         <p class="text-danger">Lưu ý: Xóa không thể khôi phục được dữ liệu lại</p>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                                     <input
                                         type="text"
                                         name="fullname"
-                                        value="{{old('fullname',($user->fullname)??"")}}"
+                                        value="{{old('fullname',($user->name)??"")}}"
                                         class="form-control"
                                         placeholder="Nhập họ tên của người dùng"
                                         autocomplete="off"

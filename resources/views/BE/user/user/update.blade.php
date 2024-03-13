@@ -45,8 +45,8 @@
                                     <label for="" class="control-label text-left">Họ tên <span class="text-danger">(*)</span></label>
                                     <input
                                         type="text"
-                                        name="fullname"
-                                        value="{{old('fullname',($user->fullname)??"")}}"
+                                        name="name"
+                                        value="{{old('name',($user->name)??"")}}"
                                         class="form-control"
                                         placeholder="Nhập họ tên của người dùng"
                                         autocomplete="off"

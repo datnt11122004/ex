@@ -10,21 +10,27 @@ use App\Services\Interfaces\UserServiceInterface as UserService;
 class DashboardController extends Controller
 {
 
-    protected $userService;
+    protected $serviceInstance;
 
-    public function __construct(
-        UserService $userService
-    ){
-        $this->userService = $userService;
+    public function __construct(){
+
     }
 
-    public function changeStatus(Request $request){
+    public function changeStatus(Request $request): \Illuminate\Http\JsonResponse
+    {
         $post = $request->input();
-        $flag = $this->userService->updateStatus($post);
+        $serviceInterfaceNamespace = 'App\Services\\' . ucfirst($post['model']) . 'Service';
+
+        if (class_exists($serviceInterfaceNamespace)) {
+            $this->serviceInstance = app($serviceInterfaceNamespace);
+        }
+        $flag = $this->serviceInstance->updateStatus($post);
+
         return response()->json(['flag' => $flag]);
     }
 
-    public function changeStatusAll(Request $request){
+    public function changeStatusAll(Request $request): \Illuminate\Http\JsonResponse
+    {
         $post = $request->input();
         $serviceInterfaceNamespace = '\App\Services\\' . ucfirst($post['model']) . 'Service';
         if (class_exists($serviceInterfaceNamespace)) {

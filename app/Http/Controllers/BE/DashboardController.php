@@ -4,7 +4,7 @@ namespace App\Http\Controllers\BE;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class DashboardController extends Controller{
     public function __construct()
     {
@@ -13,6 +13,7 @@ class DashboardController extends Controller{
 
     public function index(){
         $config = $this->config();
+//        dd(Auth::user());
         $template = 'BE.dashboard.home.index';
         return view('BE.dashboard.layout', compact('template','config'));
     }

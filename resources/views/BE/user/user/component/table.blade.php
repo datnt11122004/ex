@@ -17,10 +17,10 @@
         @foreach($user as $value)
             <tr>
                 <td class="text-center">
-                    <input type="checkbox" name="" class="input-checkbox checkboxItem">
+                    <input type="checkbox" name="" value="{{$value->id}}" class="input-checkbox checkBoxItem">
                 </td>
                 <td class="text-center">
-                    {{$value -> fullname}}
+                    {{$value -> name}}
                 </td>
                 <td class="text-center">{{$value -> email}}</td>
                 <td class="text-center">
@@ -29,14 +29,14 @@
                 <td class="text-center">
                     {{$value -> address}}
                 </td>
-                <td class="text-center">
+                <td class="text-center publish-user-{{$value->id}}">
                     <input
                         type="checkbox"
                         value="{{$value->publish}}"
-                        class="js-switch status"
+                        class="js-switch status "
                         {{($value->publish)==1?'checked':''}}
                         data-field="publish"
-                        data-model="users"
+                        data-model="user"
                         data-modelId="{{ $value->id }}"
                     />
                 </td>

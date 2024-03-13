@@ -15,7 +15,8 @@ class AuthController extends Controller{
         }
 
         public function index(){
-            if (Auth::id() > 0){
+//            dd(Auth::user());
+            if (Auth::user() > 0){
                 return redirect() -> route('dashboard.index');
             }else {
                 return view('BE.auth.login');
@@ -28,7 +29,6 @@ class AuthController extends Controller{
                 'email' => $request -> input('email'),
                 'password' => $request -> input('password'),
             ];
-
 
             if (Auth::attempt($credentials)) {
                 return redirect() -> route('dashboard.index') -> with('success', 'Đăng nhập vào trang quản trị thành công');

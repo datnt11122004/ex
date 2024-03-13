@@ -31,7 +31,7 @@ class UserController extends Controller
 
         $config['seo'] = config('apps.user');
 
-        $template = 'BE.user.index';
+        $template = 'BE.user.user.index';
         return view('BE.dashboard.layout', compact(
             'template',
             'config',
@@ -50,8 +50,7 @@ class UserController extends Controller
         ];
         $config['method'] = 'create';
         $config['seo'] = config('apps.user');
-
-        $template = 'BE.user.store';
+        $template = 'BE.user.user.store';
         return view(
             'BE.dashboard.layout',compact(
                 'template','config','provinces'
@@ -79,7 +78,7 @@ class UserController extends Controller
         ];
         $config['method'] = 'edit';
         $config['seo'] = config('apps.user');
-        $template = 'BE.user.update';
+        $template = 'BE.user.user.update';
         return view(
             'BE.dashboard.layout',compact(
             'template','config','provinces','user'
@@ -101,7 +100,7 @@ class UserController extends Controller
         $config['method'] = 'delete';
         $config['seo'] = config('apps.user');
         $user = $this->userRepository->findById($id);
-        $template = 'BE.user.delete';
+        $template = 'BE.user.user.delete';
         return view(
             'BE.dashboard.layout',compact(
             'template','user','config'

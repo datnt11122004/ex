@@ -24,7 +24,7 @@
                 <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Quản lý thành viên</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li><a href="{{route('auth.user')}}">Quản lý thành viên</a></li>
-                    <li class=""><a href="dashboard_2.html">Quản lý quyền</a></li>
+                    <li><a href="{{route('auth.user.catalogue')}}">Quản lý quyền</a></li>
                 </ul>
             </li>
 

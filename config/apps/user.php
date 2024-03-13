@@ -1,23 +1,19 @@
 <?php
-return [
-    'index'=>[
-        'title'=>'Quản lý thành viên',
-        'tableHeading' => 'Danh sách thành viên'
-    ],
-
-    'create'=>[
-        'title'=>'Thêm mới người dùng',
-        'button'=>'Lưu thông tin người dùng'
-    ],
-
-    'edit'=>[
-        'title'=>'Sửa thông tin người dùng',
-        'button'=>'Lưu chỉnh sửa thông tin người dùng'
-    ],
-
-    'delete'=>[
-        'title'=>'Xóa thành viên',
-        'button'=>'Xóa người dùng'
-    ]
-
-];
+	return [
+		'index' => [
+			'title' => 'Quản lý thành viên',
+			'tableHeading' => 'Danh sách thành viên'
+		],
+		'create' => [
+			'title' => 'Thêm mới thành viên',
+            'button' => 'Thêm mới thành viên'
+		],
+        'edit' => [
+            'title' => 'Sửa thông tin thành viên',
+            'button' => 'Lưu thông tin thành viên'
+        ],
+		'delete' => [
+			'title' => 'Xóa thành viên',
+            'button' => 'Xóa thành viên'
+		]
+	];

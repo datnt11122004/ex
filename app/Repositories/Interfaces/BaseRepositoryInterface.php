@@ -14,6 +14,8 @@ interface BaseRepositoryInterface
 
     public function update(int $id=0,array $payload=[]);
 
+    public function updateByWhereIn(string $whereInField = '', array $whereIn = [], array $payload = []);
+
     public function delete(int $id = 0);
 
     public function forceDelete(int $id = 0);

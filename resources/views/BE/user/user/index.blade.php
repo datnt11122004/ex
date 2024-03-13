@@ -5,12 +5,12 @@
         <div class="ibox float-e-margins">
             <div class="ibox-title">
                 <h5>{{$config['seo']['index']['tableHeading']}}</h5>
-                @include('BE.user.component.toolbox')
+                @include('BE.user.user.component.toolbox')
             </div>
             <div class="ibox-content">
-                @include('BE.user.component.filter')
+                @include('BE.user.user.component.filter')
                 <div class="m-b"></div>
-                @include('BE.user.component.table')
+                @include('BE.user.user.component.table')
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-<form action="{{route('auth.user')}}" method="get" role="form">
+<form action="{{route('auth.user.catalogue')}}" method="get" role="form">
     @csrf
     <div class="filter-wrapper">
         <div class="uk-flex uk-flex-middle uk-flex-space-beetween">
@@ -30,6 +30,18 @@
                         @endforeach
                     </select>
                 </div>
+                <div class="uk-flex uk-flex-middle">
+                    @php
+                        $publishArray = ['Publish', 'Unpublish'];
+                        $old_publish = request('publish')?: old('publish');
+                    @endphp
+                    <select name="publish" class="form-control mr10">
+                        <option value="-1">Trạng thái nhóm thành viên</option>
+                        @foreach($publishArray as $key => $item)
+                            <option value="{{$key}}">{{$item}}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="uk-search uk-flex uk-flex-middle mr10 ">
                     <div class="input-group">
                         <input
@@ -37,7 +49,7 @@
                             name="keyword"
                             id=""
                             value="{{request('keyword') ?: old('keyword')}}"
-                            placeholder="Nhập tên user bạn muốn tìm kiếm..."
+                            placeholder="Nhập keyword bạn muốn tìm kiếm..."
                             class="form-control"
                         >
                         <span class="input-group-btn ">
@@ -47,9 +59,8 @@
                         </span>
                     </div>
                 </div>
-                <a href="{{route('user.create')}}" class="btn btn-danger"><i class="fa fa-plus mr5"></i>Thêm mới thành viên</a>
+                <a href="{{route('user.catalogue.create')}}" class="btn btn-danger"><i class="fa fa-plus mr5"></i>Thêm mới nhóm thành viên</a>
             </div>
-
         </div>
     </div>
 </form>

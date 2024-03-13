@@ -24,12 +24,14 @@ class UserService implements UserServiceInterface
 
     public function paginateSelect()
     {
-        return ['id','fullname','email','phone','address','publish'];
+        return ['id','name','email','phone','address','publish'];
     }
     public function paginate($request = []){
         $condition['keyword'] = $request->input('keyword');
         $perpage = $request->integer('perpage');
         $condition['user_catalogue_id'] = $request->input('user_catalogue_id');
+        $condition['publish'] = $request->integer('publish');
+
 
         $users = $this -> userRespository->pagination(
             $this->paginateSelect(),
@@ -83,7 +85,7 @@ class UserService implements UserServiceInterface
     {
         DB::beginTransaction();
         try {
-            $user = $this->userRespository->Delete($id);
+            $user = $this->userRespository->forceDelete($id);
             DB::commit();
             return true;
         }catch (\Exception $e){
@@ -98,6 +100,23 @@ class UserService implements UserServiceInterface
         try{
             $payload[$post['field']] = (($post['value'] == 1)?0:1);
             $user = $this->userRespository->update($post['modelId'], $payload);
+            DB::commit();
+            return true;
+        }catch(\Exception $e ){
+            DB::rollBack();
+            // Log::error($e->getMessage());
+            echo $e->getMessage();die();
+            return false;
+        }
+    }
+
+    public function updateStatusAll($post=[])
+    {
+        DB::beginTransaction();
+        try{
+            $payload[$post['field']] = $post['value'];
+            $flag = $this->userRespository->updateByWhereIn('id', $post['id'], $payload);
+
             DB::commit();
             return true;
         }catch(\Exception $e ){

@@ -27,12 +27,11 @@ class BaseRepository implements  BaseRepositoryInterface
         array $join = [],
         array $extend = [],
         int $perpage = 1,
-
     ){
         $query = $this->model->select($colum)
                         ->where(function ($query) use ($condition){
                             if(isset($condition['keyword']) && !empty($condition['keyword'])){
-                                $query->where('fullname','LIKE','%'.$condition['keyword'].'%');
+                                $query->where('name','LIKE','%'.$condition['keyword'].'%');
                             }
                             if(isset($condition['user_catalogue_id']) && !empty($condition['user_catalogue_id'])){
                                 $query->where('user_catalogue_id','=',$condition['user_catalogue_id']);
@@ -60,6 +59,10 @@ class BaseRepository implements  BaseRepositoryInterface
     {
         $model = $this->findById($id);
         return $model->update($payload);
+    }
+
+    public function updateByWhereIn(string $whereInField = '', array $whereIn = [], array $payload = []){
+        return $this->model->whereIn($whereInField, $whereIn)->update($payload);
     }
 
     public function findById(

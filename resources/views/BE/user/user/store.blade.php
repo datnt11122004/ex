@@ -44,8 +44,8 @@
                                     <label for="" class="control-label text-left">Họ tên <span class="text-danger">(*)</span></label>
                                     <input
                                         type="text"
-                                        name="fullname"
-                                        value="{{old('fullname')}}"
+                                        name="name"
+                                        value="{{old('name')}}"
                                         class="form-control"
                                         placeholder="Nhập họ tên của người dùng"
                                         autocomplete="off"
@@ -231,7 +231,7 @@
     </div>
 </form>
 <script>
-    var province_id = {{old('province_id')}} ;
-    var district_id = {{old('district_id')}};
-    var ward_id = {{old('district_id')}};
+    var province_id = {{old('province_id')??0}} ;
+    var district_id = {{old('district_id')??0}};
+    var ward_id = {{old('district_id')??0}};
 </script>
