@@ -24,13 +24,6 @@
             @endphp
             <div class="action uk-flex">
                 <div class="uk-flex uk-flex-middle">
-                    <select name="user_catalogue_id" class="form-control mr10">
-                        @foreach($user_catalogue_id as $key => $item)
-                            <option value="{{$key}}" @if($key==$old_user_catalogue_id) selected @endif>{{$item}}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="uk-flex uk-flex-middle">
                     @php
                         $publishArray = ['Publish', 'Unpublish'];
                         $old_publish = request('publish')?: old('publish');

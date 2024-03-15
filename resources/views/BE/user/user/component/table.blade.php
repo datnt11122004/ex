@@ -33,7 +33,7 @@
                     <input
                         type="checkbox"
                         value="{{$value->publish}}"
-                        class="js-switch status "
+                        class="js-switch status"
                         {{($value->publish)==1?'checked':''}}
                         data-field="publish"
                         data-model="user"

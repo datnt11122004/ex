@@ -83,8 +83,7 @@ class UserCatalogueService implements UserCatalogueServiceInterface
     public function destroy($id){
         DB::beginTransaction();
         try{
-            $user = $this->userCatalogueRepository->delete($id);
-
+            $user = $this->userCatalogueRepository->forceDelete($id);
             DB::commit();
             return true;
         }catch(\Exception $e ){

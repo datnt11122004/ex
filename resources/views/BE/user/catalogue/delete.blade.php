@@ -1,4 +1,4 @@
-@include('backend.dashboard.component.breadcrumb', ['title' => $config['seo']['create']['title']])
+@include('BE.dashboard.component.breadcrumb', ['title' => $config['seo']['create']['title']])
 
 <form action="{{ route('user.catalogue.destroy', $userCatalogue->id) }}" method="post" class="box">
     @csrf
@@ -21,7 +21,7 @@
                             <div class="col-lg-12">
                                 <div class="form-row">
                                     <label for="" class="control-label text-left">Tên nhóm <span class="text-danger">(*)</span></label>
-                                    <input 
+                                    <input
                                         type="text"
                                         name="name"
                                         value="{{ old('name', ($userCatalogue->name) ?? '' ) }}"
@@ -37,7 +37,7 @@
                 </div>
             </div>
         </div>
-       
+
         <div class="text-right mb15">
             <button class="btn btn-danger" type="submit" name="send" value="send">Xóa dữ liệu</button>
         </div>

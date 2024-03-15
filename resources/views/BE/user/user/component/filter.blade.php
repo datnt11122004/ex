@@ -49,7 +49,7 @@
                             name="keyword"
                             id=""
                             value="{{request('keyword') ?: old('keyword')}}"
-                            placeholder="Nhập tên user bạn muốn tìm kiếm..."
+                            placeholder="Nhập keyword bạn muốn tìm kiếm..."
                             class="form-control"
                         >
                         <span class="input-group-btn ">

@@ -1,4 +1,4 @@
-@include('BE.dashboard.component.breadcrumb', ['title' => $config['seo']['create']['title']])
+@include('BE.dashboard.component.breadcrumb', ['title' => $config['seo']['edit']['title']])
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -8,11 +8,9 @@
         </ul>
     </div>
 @endif
-@php
-    $url = ($config['method'] == 'create') ? route('user.catalogue.store') : route('user.catalogue.update', $userCatalogue->id);
-@endphp
-<form action="{{route('user.catalogue.store')}}" method="post" class="box">
+<form action="{{route('user.catalogue.update',$userCatalogue->id)}}" method="post" class="box">
     @csrf
+    @method('PUT')
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
             <div class="col-lg-5">

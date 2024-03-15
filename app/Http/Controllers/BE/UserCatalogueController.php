@@ -36,12 +36,10 @@ class UserCatalogueController extends Controller
         $userCatalogues = $this->userCatalogueService->paginate($request);
         $config = [
             'js' => [
-                'backend/js/plugins/switchery/switchery.js',
-                'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js'
+                'js/plugins/switchery/switchery.js',
             ],
             'css' => [
-                'backend/css/plugins/switchery/switchery.css',
-                'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css'
+                'css/plugins/switchery/switchery.css',
             ],
             'model' => 'UserCatalogue',
         ];
@@ -73,11 +71,11 @@ class UserCatalogueController extends Controller
     }
 
     public function edit($id){
-        $this->authorize('modules', 'user.catalogue.update');
+//        $this->authorize('modules', 'user.catalogue.update');
         $userCatalogue = $this->userCatalogueRepository->findById($id);
         $config['seo'] = config('apps.usercatalogue');
         $config['method'] = 'edit';
-        $template = 'BE.user.catalogue.store';
+        $template = 'BE.user.catalogue.update';
         return view('BE.dashboard.layout', compact(
             'template',
             'config',
@@ -93,7 +91,7 @@ class UserCatalogueController extends Controller
     }
 
     public function delete($id){
-        $this->authorize('modules', 'user.catalogue.destroy');
+//        $this->authorize('modules', 'user.catalogue.destroy');
         $config['seo'] = config('apps.usercatalogue');
         $userCatalogue = $this->userCatalogueRepository->findById($id);
         $template = 'BE.user.catalogue.delete';
@@ -106,7 +104,7 @@ class UserCatalogueController extends Controller
 
     public function destroy($id){
         if($this->userCatalogueService->destroy($id)){
-            return redirect()->route('user.catalogue.index')->with('success','Xóa bản ghi thành công');
+            return redirect()->route('auth.user.catalogue')->with('success','Xóa bản ghi thành công');
         }
         return redirect()->route('user.catalogue.index')->with('error','Xóa bản ghi không thành công. Hãy thử lại');
     }
