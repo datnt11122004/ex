@@ -10,6 +10,7 @@ use App\Services\Interfaces\UserCatalogueServiceInterface  as UserCatalogueServi
 use App\Repositories\Interfaces\UserCatalogueRepositoryInterface  as UserCatalogueRepository;
 use App\Repositories\Interfaces\PermissionRepositoryInterface  as PermissionRepository;
 use App\Http\Requests\StoreUserCatalogueRequest;
+use  App\Http\Requests\UpdateUserCatalogueRequest;
 
 class UserCatalogueController extends Controller
 {
@@ -83,9 +84,9 @@ class UserCatalogueController extends Controller
         ));
     }
 
-    public function update($id, StoreUserCatalogueRequest $request){
+    public function update($id, UpdateUserCatalogueRequest $request){
         if($this->userCatalogueService->update($id, $request)){
-            return redirect()->route('user.catalogue.index')->with('success','Cập nhật bản ghi thành công');
+            return redirect()->route('auth.user.catalogue')->with('success','Cập nhật bản ghi thành công');
         }
         return redirect()->route('user.catalogue.index')->with('error','Cập nhật bản ghi không thành công. Hãy thử lại');
     }
@@ -126,7 +127,7 @@ class UserCatalogueController extends Controller
 
     public function updatePermission(Request $request){
         if($this->userCatalogueService->setPermission($request)){
-            return redirect()->route('user.catalogue.index')->with('success','Cập nhật quyền thành công');
+            return redirect()->route('auth.user.catalogue')->with('success','Cập nhật quyền thành công');
         }
         return redirect()->route('user.catalogue.index')->with('error','Có vấn đề xảy ra, Hãy thử lại');
     }
