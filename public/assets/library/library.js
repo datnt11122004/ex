@@ -103,7 +103,7 @@
                     'id'    : id,
                     '_token' : _token
                 }
-                // console.log(option);
+                console.log(option);
                 // console.log(id)
 
                 $.ajax({
@@ -112,6 +112,7 @@
                     data: option,
                     dataType: 'json',
                     success: function(res) {
+                        console.log(res)
                         if(res.flag == true){
                             let cssActive1 = 'background-color: rgb(26, 179, 148); border-color: rgb(26, 179, 148); box-shadow: rgb(26, 179, 148) 0px 0px 0px 16px inset; transition: border 0.4s ease 0s, box-shadow 0.4s ease 0s, background-color 1.2s ease 0s;';
                             let cssActive2 = 'left: 20px; background-color: rgb(255, 255, 255); transition: background-color 0.4s ease 0s, left 0.2s ease 0s;';

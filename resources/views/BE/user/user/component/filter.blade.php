@@ -32,7 +32,7 @@
                 </div>
                 <div class="uk-flex uk-flex-middle">
                     @php
-                        $publishArray = ['Publish', 'Unpublish'];
+                        $publishArray = ['UnPublish', 'Publish'];
                         $old_publish = request('publish')?: old('publish');
                     @endphp
                     <select name="publish" class="form-control mr10">

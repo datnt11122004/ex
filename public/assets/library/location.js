@@ -13,18 +13,18 @@
 
             }
             $.ajax({
-                url:'/ajax/location/getLocation',
+                url:'http://localhost/example-app/public/ajax/location/getLocation',
                 type: 'GET',
                 data:option,
                 dataType: 'JSON',
                 success:function (response){
                     $('.'+option.target).html(response.html);
 
-                    if(district_id !== 0 && option.target === 'districts'){
+                    if(district_id != 0 && option.target == 'districts'){
                         $('.districts').val(district_id).trigger('change');
                     }
 
-                    if(ward_id !== 0 && option.target === 'wards'){
+                    if(ward_id != 0 && option.target == 'wards'){
                         $('.wards').val(ward_id).trigger('change');
                     }
                 },
@@ -40,7 +40,7 @@
     }
 
     HT.loadCity = () => {
-        if(province_id !== 0){
+        if(province_id != 0){
             $('.province').val(province_id).trigger('change');
         }
     }

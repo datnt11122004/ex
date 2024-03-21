@@ -27,13 +27,13 @@
                 <td>
                     {{ $userCatalogue->description }}
                 </td>
-                <td class="text-center js-switch-{{ $userCatalogue->id }}">
+                <td class="text-center publish-user-{{ $userCatalogue->id }}">
                     <input
                         type="checkbox"
                         value="{{ $userCatalogue->publish }}"
                         class="js-switch status "
                         data-field="publish"
-                        data-model="{{ $config['model'] }}"
+                        data-model="UserCatalogue"
                         {{ ($userCatalogue->publish == 1) ? 'checked' : '' }}
                         data-modelId="{{ $userCatalogue->id }}"
                     />

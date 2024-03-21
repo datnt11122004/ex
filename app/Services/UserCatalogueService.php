@@ -42,9 +42,10 @@ class UserCatalogueService implements UserCatalogueServiceInterface
             [],
             ['path' => 'user/catalogue/index'],
             20,
-//            [],
+            ['users']
 //            ['users']
         );
+        dd($userCatalogues);
         return $userCatalogues;
     }
 
