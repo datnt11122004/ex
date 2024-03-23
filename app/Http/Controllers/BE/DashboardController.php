@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\BE;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
+
 class DashboardController extends Controller{
     public function __construct()
     {
@@ -15,7 +16,12 @@ class DashboardController extends Controller{
         $config = $this->config();
 //        dd(Auth::user());
         $template = 'BE.dashboard.home.index';
+
+        // dùng include template thì sẽ là cách này
         return view('BE.dashboard.layout', compact('template','config'));
+
+        // nếu dùng yield sẽ dùng cách này
+//        return View::make($template);
     }
 
     private function config(){

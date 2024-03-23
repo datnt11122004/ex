@@ -34,7 +34,7 @@ class BaseRepository implements  BaseRepositoryInterface
                             if(isset($condition['keyword']) && !empty($condition['keyword'])){
                                 $query->where('name','LIKE','%'.$condition['keyword'].'%');
                             }
-                            if(isset($condition['publish']) && !empty($condition['publish']) && $condition['publish'] !== -1) {
+                            if(isset($condition['publish']) && !empty($condition['publish']) && $condition['publish'] !== 0) {
                                 $query->where('publish','=',$condition['publish']);
                             }
                             if(isset($condition['user_catalogue_id']) && !empty($condition['user_catalogue_id'])){

@@ -8,6 +8,7 @@
         <th class="text-center">Email</th>
         <th class="text-center">Số điện thoại</th>
         <th class="text-center">Địa chỉ</th>
+        <th class="text-center">Vai trò</th>
         <th class="text-center">Tình trạng</th>
         <th class="text-center">Thao tác</th>
     </tr>
@@ -20,14 +21,17 @@
                     <input type="checkbox" name="" value="{{$value->id}}" class="input-checkbox checkBoxItem">
                 </td>
                 <td class="text-center">
-                    {{$value -> name}}
+                    {{$value->name}}
                 </td>
                 <td class="text-center">{{$value -> email}}</td>
                 <td class="text-center">
-                    {{$value -> phone}}
+                    {{$value->phone}}
                 </td>
                 <td class="text-center">
-                    {{$value -> address}}
+                    {{$value->address}}
+                </td>
+                <td class="text-center">
+                    {{$value->user_catalogues->name}}
                 </td>
                 <td class="text-center publish-user-{{$value->id}}">
                     <input

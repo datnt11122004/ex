@@ -56,7 +56,7 @@ Route::post('ajax/dashboard/changeStatusAll',[AjaxDashboardController::class, 'c
 
 
 // Backend route
-Route::get('dashboard/index',[DashboardController::class, 'index']) -> name('dashboard.index') -> middleware('admin');
+Route::get('dashboard/index',[DashboardController::class, 'index'])->name('dashboard.index')->middleware('admin');
 Route::get('admin', [AuthController::class, 'index'])-> name('auth.admin')->middleware('login');
 Route::post('login', [AuthController::class, 'login'])-> name('auth.login');
 Route::get('logout', [AuthController::class, 'logout'])-> name('auth.logout');

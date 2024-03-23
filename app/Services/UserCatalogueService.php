@@ -45,7 +45,7 @@ class UserCatalogueService implements UserCatalogueServiceInterface
             ['users']
 //            ['users']
         );
-        dd($userCatalogues);
+//        dd($userCatalogues);
         return $userCatalogues;
     }
 
@@ -140,6 +140,7 @@ class UserCatalogueService implements UserCatalogueServiceInterface
                 $array = $post['id'];
             }
             $payload[$post['field']] = $value;
+//            dd($array);
             $this->userRepository->updateByWhereIn('user_catalogue_id', $array, $payload);
             DB::commit();
             return true;

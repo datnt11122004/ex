@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('user_catalogues', function (Blueprint $table) {
-            $table->tinyInteger('publish')->default(0);
+            $table->tinyInteger('publish')->default(1);
         });
     }
 

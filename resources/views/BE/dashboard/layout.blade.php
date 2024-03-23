@@ -11,7 +11,8 @@
     @include('BE.dashboard.component.sidebar')
     <div id="page-wrapper" class="gray-bg">
         @include('BE.dashboard.component.nav')
-        @include($template);
+        @include($template)
+{{--        @yield('template');--}}
         {{--        footer --}}
         @include('BE.dashboard.component.footer')
     </div>

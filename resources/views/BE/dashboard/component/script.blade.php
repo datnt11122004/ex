@@ -5,6 +5,8 @@
 <script src="assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
 <script src="assets/library/library.js"></script>
+<script src="assets/js/inspinia.js"></script>
+<script src="assets/js.plugins/pace/pace.min.js"></script>
 <!-- jQuery UI -->
 <script src="assets/js/plugins/jquery-ui/jquery-ui.min.js"></script>
 @if(isset($config['js']) && is_array($config['js']))

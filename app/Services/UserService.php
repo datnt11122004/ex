@@ -24,7 +24,7 @@ class UserService implements UserServiceInterface
 
     public function paginateSelect()
     {
-        return ['id','name','email','phone','address','publish'];
+        return ['id','name','email','phone','address','publish','user_catalogue_id'];
     }
     public function paginate($request = []){
         $condition['keyword'] = $request->input('keyword');
@@ -98,7 +98,7 @@ class UserService implements UserServiceInterface
     public function updateStatus($post= []){
         DB::beginTransaction();
         try{
-            $payload[$post['field']] = (($post['value'] == 1)?0:1);
+            $payload[$post['field']] = (($post['value'] == 1)?2:1);
             $user = $this->userRespository->update($post['modelId'], $payload);
             DB::commit();
             return true;

@@ -14,24 +14,15 @@
                     </select>
                 </div>
             </div>
-            @php
-                $user_catalogue_id = [
-                    'Chọn nhóm thành viên',
-                    'Quản trị viên',
-                    'Người dùng'
-                ];
-                $old_user_catalogue_id = request('user_catalogue_id') ?: old('user_catalogue_id');
-            @endphp
             <div class="action uk-flex">
                 <div class="uk-flex uk-flex-middle">
                     @php
-                        $publishArray = ['UnPublish', 'Publish'];
+                        $publish = config('apps.general.publish');
                         $old_publish = request('publish')?: old('publish');
                     @endphp
                     <select name="publish" class="form-control mr10">
-                        <option value="-1">Trạng thái nhóm thành viên</option>
-                        @foreach($publishArray as $key => $item)
-                            <option value="{{$key}}">{{$item}}</option>
+                        @foreach($publish as $key => $item)
+                            <option value="{{$key}}" @if($old_publish==$key) selected @endif>{{$item}}</option>
                         @endforeach
                     </select>
                 </div>

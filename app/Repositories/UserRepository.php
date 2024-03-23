@@ -28,21 +28,21 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         array $join = [],
         array $extend = [],
         int $perpage = 20,
-        array $relation = []
+        array $relations = []
     ){
         $query = $this->model->select($colum)
             ->where(function ($query) use ($condition){
                 if(isset($condition['keyword']) && !empty($condition['keyword'])){
                     $query->whereRaw('CONCAT(name, email, address, phone)','LIKE','%'.$condition['keyword'].'%');
                 }
-                if(isset($condition['publish']) && !empty($condition['publish']) && $condition['publish'] !== -1) {
+                if(isset($condition['publish']) && !empty($condition['publish']) && $condition['publish'] !== 0) {
                     $query->where('publish','=',$condition['publish']);
                 }
                 if(isset($condition['user_catalogue_id']) && !empty($condition['user_catalogue_id']) && $condition['user_catalogue_id'] !== 0){
                     $query->where('user_catalogue_id','=',$condition['user_catalogue_id']);
                 }
                 return $query;
-            });
+            })->with('user_catalogues');
         // join table
         if(isset($join) && !empty($join)){
             $query->join(...$join);
